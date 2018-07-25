@@ -3,26 +3,21 @@
 %
 
 % Note clear all the variables in the workspace
-clear
+clear;
 
-%Initialise the variables
-inputnum=0;
-while ( (inputnum>5) && (inputnum<10)  )  
-    inputnum = input('Enter a number between 0 and 15: ');
+% Clear the command window
+clc;
+
+% Load in the sample temperature data from file
+load surface_sample.mat
+
+%Initialise counter
+counter = 1;
+value = 0;
+threshold = 24; %This is the maximum allowed temperature
+
+while (value < threshold)
+    value = temperature(counter);
+    %increment the counter
+    counter = counter +1; 
 end
-disp('The loop has finished - you have entered a number that lies outside 5 and 10')
-
-disp('Press any key to continue')
-pause
-clc
-% You can set a condition on the number of times the loop executes
-
-%initialise the value of counter
-counter = 0;
-while (counter < 5)
-    counter = counter +1;
-    disp(['Value of counter: ' num2str(counter) ]);
-end
-
-
-
